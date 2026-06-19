@@ -1,0 +1,139 @@
+/* ── ProcessBI blog-specific styles — dark premium theme ── */
+
+/* ── Blog post hero ── */
+.blog-post-hero {
+  padding: 130px 24px 64px;
+  position: relative;
+}
+.blog-post-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0,194,255,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: #8BB4CC;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: #8BB4CC; text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: #00C2FF; }
+.breadcrumb-sep { color: rgba(0,194,255,0.4); font-size: 0.75rem; }
+
+/* ── Post meta ── */
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.meta-tag {
+  display: inline-block;
+  background: rgba(0,194,255,0.1);
+  border: 1px solid rgba(0,194,255,0.25);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #00C2FF;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.meta-date, .meta-read { font-size: 0.8125rem; color: #8BB4CC; }
+.meta-sep { color: rgba(0,194,255,0.3); }
+
+/* ── Article wrapper ── */
+.blog-article { padding: 60px 0 80px; }
+
+/* ── Article body ── */
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.article-body p {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #CBD5E1;
+  margin-bottom: 1.5rem;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #00C2FF;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.article-body h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  margin-top: 1.75rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.015em;
+}
+.article-body h4 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #00C2FF;
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Lists */
+.article-body ul, .article-body ol {
+  margin: 0.5rem 0 1.5rem 1.5rem;
+  color: #CBD5E1;
+}
+.article-body li {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+.article-body ul li::marker { color: #00C2FF; }
+.article-body ol li::marker { color: #00C2FF; font-weight: 600; }
+
+/* ── Pull quote ── */
+.pull-quote {
+  border-left: 3px solid #00C2FF;
+  padding: 14px 22px;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #E2E8F0;
+  background: rgba(0,194,255,0.04);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ── Info box ── */
+.info-box {
+  background: rgba(0,194,255,0.05);
+  border: 1px solid rgba(0,194,255,0.2);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 1.75rem 0;
+}
+.info-box-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #00C2FF;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 8px;
+}
+.info-box p { margin-bottom: 0 !import

@@ -1,0 +1,12 @@
+# robots.txt for processbi.com.au
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /tmp/
+
+# Sitemap
+Sitemap: https://processbi.com.au/sitemap.xml
+
+# Crawl-delay (optional, respected by some bots)
+Crawl-delay: 1

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProcessBI — Business Process Consulting Australia | Microsoft Fabric & Power BI</title>
+<meta name="description" content="ProcessBI — Australia's process-first business intelligence consultancy. We design better processes, then build the Microsoft Fabric and Power BI layer that makes them measurable.">
+<link rel="canonical" href="https://processbi.com.au/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ProcessBI">
+<meta property="og:title" content="ProcessBI — Business Process Consulting Australia | Microsoft Fabric & Power BI">
+<meta property="og:description" content="Australia's process-first business intelligence consultancy. We design better processes, then build the Microsoft Fabric and Power BI layer that makes them measurable.">
+<meta property="og:url" content="https://processbi.com.au/">
+<meta property="og:image" content="https://processbi.com.au/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@processbi">
+<meta name="twitter:title" content="ProcessBI — Business Process Consulting Australia">
+<meta name="twitter:description" content="Australia's process-first business intelligence consultancy. Microsoft Fabric, Power BI, and process automation.">
+<meta name="twitter:image" content="https://processbi.com.au/og-image.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:{'900':'#0B1A2E','800':'#0D2347','700':'#0f2d5e','600':'#1a4a8a'},electric:{'400':'#1EAEFF','500':'#00C2FF','600':'#0078d4'},accent:{emerald:'#10b981'}},fontFamily:{display:['Space Grotesk','sans-serif'],body:['Inter','sans-serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+</style>
+</head>
+<body>
+
+<!-- ── Brand Reveal Intro (motion graphic) ── -->
+<div id="pb-intro" aria-hidden="true">
+  <div class="pb-intro-inner">
+    <svg class="pb-intro-mark" viewBox="0 0 132 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="il1" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#1A4AC2"/><stop offset="1" stop-color="#2E6BF6"/></linearGradient>
+        <linearGradient id="ilt" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2E6BF6"/><stop offset="1" stop-color="#46D5FF"/></linearGradient>
+        <linearGradient id="iln" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2E6BF6"/><stop offset="1" stop-color="#46D5FF"/></linearGradient>
+        <filter id="igl" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect class="ibar ib0" x="12" y="78" width="17" height="26" rx="6" fill="url(#il1)"/>
+      <rect class="ibar ib1" x="37" y="60" width="17" height="44" rx="6" fill="url(#il1)"/>
+      <rect class="ibar ib2" x="62" y="38" width="17" height="66" rx="6" fill="url(#il1)"/>
+      <rect class="ibar ib3" x="87" y="16" width="17" height="88" rx="6" fill="url(#ilt)"/>
+      <path class="iline" d="M20.5 78 L45.5 60 L70.5 38 L95.5 16 L122 5" fill="none" stroke="url(#iln)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#igl)"/>
+      <path class="iarr" d="M122 5 L109 6.5 M122 5 L120.5 18" fill="none" stroke="#46D5FF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#igl)"/>
+      <g class="inode in0"><circle class="ihalo" cx="20.5" cy="78" r="11" fill="#46D5FF"/><circle cx="20.5" cy="78" r="6.2" fill="#06182F" stroke="#46D5FF" stroke-width="3"/><circle cx="20.5" cy="78" r="2.6" fill="#86E6FF"/></g>
+      <g class="inode in1"><circle class="ihalo" cx="45.5" cy="60" r="11" fill="#46D5FF"/><circle cx="45.5" cy="60" r="6.2" fill="#06182F" stroke="#46D5FF" stroke-width="3"/><circle cx="45.5" cy="60" r="2.6" fill="#86E6FF"/></g>
+      <g class="inode in2"><circle class="ihalo" cx="70.5" cy="38" r="11" fill="#46D5FF"/><circle cx="70.5" cy="38" r="6.2" fill="#06182F" stroke="#46D5FF" stroke-width="3"/><circle cx="70.5" cy="38" r="2.6" fill="#86E6FF"/></g>
+      <g class="inode in3"><circle class="ihalo" cx="95.5" cy="16" r="11" fill="#46D5FF"/><circle cx="95.5" cy="16" r="6.2" fill="#06182F" stroke="#46D5FF" stroke-width="3"/><circle cx="95.5" cy="16" r="2.6" fill="#86E6FF"/></g>
+    </svg>
+    <div class="pb-intro-word"><span style="color:#EAF2FF">Process</span><span style="color:#46D5FF">BI</span></div>
+    <div class="pb-intro-tag"><span class="pb-intro-dash"></span>Where process meets intelligence</div>
+  </div>
+</div>
+<style>
+  #pb-intro{position:fixed;inset:0;z-index:99999;background:radial-gradient(120% 90% at 50% 38%,#0B2A52 0%,#06182F 64%);display:flex;align-items:center;justify-content:center;transition:opacity .8s ease;will-change:opacity}
+  #pb-intro.pb-done{opacity:0;pointer-events:none}
+  #pb-intro.pb-hide{display:none}
+  .pb-intro-inner{display:flex;flex-direction:column;align-items:center;gap:26px}
+  .pb-intro-mark{width:clamp(190px,28vw,330px);height:auto;overflow:visible}
+  .pb-intro-word{font-family:'Space Grotesk','Sora',sans-serif;font-weight:700;letter-spacing:-0.02em;font-size:clamp(40px,6.5vw,84px);line-height:1;white-space:nowrap;clip-path:inset(0 100% 0 0);animation:iWipe .9s cubic-bezier(.65,0,.35,1) 2.5s forwards}
+  .pb-intro-tag{display:flex;align-items:center;gap:14px;font-family:'Inter','Sora',sans-serif;color:#7C9CC9;font-size:clamp(14px,1.6vw,21px);opacity:0;animation:iFade .7s ease 3.5s forwards}
+  .pb-intro-dash{display:inline-block;width:40px;height:3px;border-radius:2px;background:#2E6BF6}
+  .ibar{transform-box:fill-box;transform-origin:bottom;animation:iRise .7s cubic-bezier(.2,.8,.25,1) backwards}
+  .ib0{animation-delay:.35s}.ib1{animation-delay:.52s}.ib2{animation-delay:.69s}.ib3{animation-delay:.86s}
+  .iline{stroke-dasharray:200;stroke-dashoffset:200;animation:iDraw 1.05s ease-in-out 1.1s forwards}
+  .iarr{opacity:0;animation:iPop .5s cubic-bezier(.34,1.56,.64,1) 2.15s forwards}
+  .inode{transform-box:fill-box;transform-origin:center;opacity:0;animation:iPop .45s cubic-bezier(.34,1.56,.64,1) backwards forwards}
+  .in0{animation-delay:1.25s}.in1{animation-delay:1.47s}.in2{animation-delay:1.69s}.in3{animation-delay:1.91s}
+  .ihalo{transform-box:fill-box;transform-origin:center;animation:iPulse 4.4s ease-in-out infinite}
+  @keyframes iRise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  @keyframes iDraw{to{stroke-dashoffset:0}}
+  @keyframes iPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+  @keyframes iPulse{0%,100%{opacity:.16}50%{opacity:.42}}
+  @keyframes iWipe{to{clip-path:inset(0 0 0 0)}}
+  @keyframes iFade{to{opacity:1}}
+  @media(prefers-reduced-motion:reduce){#pb-intro{display:none}}
+</style>
+<script>
+(function(){
+  var el=document.getElementById('pb-intro');
+  if(!el)return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var seen=false; try{seen=sessionStorage.getItem('pb_intro_seen')==='1';}catch(e){}
+  if(seen||reduce){ el.classList.add('pb-done','pb-hide'); return; }
+  try{sessionStorage.setItem('pb_intro_seen','1');}catch(e){}
+  document.body.style.overflow='hidden';
+  function dismiss(){
+    el.classList.add('pb-done');
+    document.body.style.overflow='';
+    setTimeout(function(){el.classList.add('pb-hide');},850);
+  }
+  var timer=setTimeout(dismiss,5000);
+  el.addEventListener('click',function(){clearTimeout(timer);dismiss();});
+})();
+</script>
+
+<!-- ── Hero ── -->
+<section id="hero">
+  <div class="mesh-gradient" style="background:#00C2FF;top:-200px;left:-100px"></div>
+  <div class="mesh-gradient" style="background:#1A7FFF;top:200px;right:-200px"></div>
+  <div class="mesh-gradient" style="background:#0D2347;bottom:-100px;left:30%;opacity:0.4"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center" style="padding-top:100px">
+    <!-- Animated logo above headline -->
+    <div class="flex justify-center mb-8">
+      <object data="logo-animated.svg" type="image/svg+xml" width="100" height="100" aria-label="ProcessBI logo"></object>
+    </div>
+
+    <div class="brand-label mb-4">PROCESS × INTELLIGENCE</div>
+
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-electric-500/20 bg-electric-500/5 mb-8">
+      <div class="w-2 h-2 rounded-full bg-electric-500 animate-pulse-glow"></div>
+      <span class="text-electric-500 text-xs font-semibold tracking-widest uppercase">Business Process Intelligence · Melbourne, Australia</span>
+    </div>
+
+    <h1 class="font-display text-5xl md:text-7xl font-black text-slate-900 leading-tight mb-6 glow-text neon-glow">
+      Better Processes.<br>Fewer Surprises.<br><span class="gradient-text">Smarter Business.</span>
+    </h1>
+    <p class="text-slate-600 text-xl max-w-2xl mx-auto mb-6 leading-relaxed">
+      Australia's specialist business process consulting and business intelligence practice. We map how your organisation actually works — end to end — find the waste, redesign the process, then build the Microsoft Fabric and Power BI analytics layer that keeps the gains visible and permanent.
+    </p>
+    <p class="text-slate-500 text-base mb-10"><span class="hero-tagline-line"></span>Where process meets intelligence</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="contact.html" class="btn-primary">Start a Conversation</a>
+      <a href="case-studies.html" class="btn-outline">View Case Studies</a>
+    </div>
+
+    <!-- Proof points -->
+    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 mt-16 text-sm text-slate-500">
+      <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div>50+ Enterprise Projects Across Australia</div>
+      <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div>Lean Six Sigma · ISO 9001 · BPMN 2.0</div>
+      <div class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div>Melbourne · Serving All Australian States</div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg width="24" height="24" fill="none" stroke="#0ea5e933" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+
+<!-- ── Services Preview ── -->
+<section class="py-32 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20 reveal">
+      <span class="text-electric-500 text-sm font-semibold tracking-widest uppercase">What We Do</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">From Process Design<br><span class="gradient-text">to Business Intelligence</span></h2>
+      <p class="text-slate-600 max-w-2xl mx-auto text-lg">Australia's only consultancy that combines Lean Six Sigma process design, process automation consulting, and Microsoft Fabric implementation under one engagement. We fix how your business works first. The technology follows.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="glass-card p-8 reveal" style="transition-delay:0.1s">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,rgba(14,165,233,0.2),rgba(14,165,233,0.05))">
+          <svg width="26" height="26" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M9 8h6M6 11h.01M9 11h9"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-slate-900 mb-3">Business Process Design &amp; Mapping</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">We analyse how your organisation actually works — end to end. Business process mapping, gap analysis, and redesign using Lean Six Sigma DMAIC and ISO 9001 frameworks. Swim lane diagrams, BPMN 2.0, value stream mapping, and process simulation — all before any technology is touched. This is process improvement consulting in Australia the way it should be done.</p>
+        <a href="services.html" class="text-electric-500 text-sm font-medium hover:text-electric-400 transition-colors">Explore services →</a>
+      </div>
+      <div class="glass-card p-8 reveal" style="transition-delay:0.2s">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,rgba(14,165,233,0.2),rgba(14,165,233,0.05))">
+          <svg width="26" height="26" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-slate-900 mb-3">Process Automation &amp; Efficiency</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Eliminate waste, remove bottlenecks, and automate repetitive steps using Power Automate, Copilot Studio AI agents, and RPA. Process automation consulting in Australia done right: every automation is grounded in a redesigned, validated process — never layered on a broken one.</p>
+        <a href="services.html" class="text-electric-500 text-sm font-medium hover:text-electric-400 transition-colors">Explore services →</a>
+      </div>
+      <div class="glass-card p-8 reveal" style="transition-delay:0.3s">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(16,185,129,0.05))">
+          <svg width="26" height="26" fill="none" stroke="#10b981" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-slate-900 mb-3">Process Intelligence &amp; Analytics</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Once your processes are optimised, we instrument them with Microsoft Fabric and Power BI — Australia's most capable business intelligence platform combination — so every business decision is driven by real process data. Fraud detection, risk analytics, and operational dashboards. Business intelligence consulting in Australia that starts with the process, not the tool.</p>
+        <a href="services.html" class="text-accent-emerald text-sm font-medium hover:text-green-400 transition-colors">Explore services →</a>
+      </div>
+    </div>
+    <div class="text-center mt-12 reveal">
+      <a href="services.html" class="btn-outline">View All Services &amp; Capabilities</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── AI Research Engine ── -->
+<section class="py-32 relative" id="ai-research-engine" style="background:rgba(255,255,255,0.02)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-4 reveal">
+      <span class="text-electric-500 text-sm font-semibold tracking-widest uppercase">Powered by an AI Research Engine</span>
+    </div>
+    <div class="text-center mb-16 reveal">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Process Intelligence<br><span class="gradient-text">at Scale</span></h2>
+      <p class="text-slate-600 text-lg max-w-2xl mx-auto mb-8">Our AI Research Engine continuously processes industry benchmarks, Australian regulatory standards (APRA, AML/CTF, ISO), and process best-practices — so every recommendation arrives backed by current evidence rather than a consultant's memory of the last similar project. This is what agentic AI consulting in Australia looks like in practice: proprietary intelligence infrastructure running 24/7 so client engagements start with deeper insight than any traditional consulting firm can match. You get strategic insight in days, not weeks.</p>
+      <div class="inline-flex items-center gap-5 px-8 py-5 rounded-2xl" style="background:rgba(0,194,255,0.06);border:1px solid rgba(0,194,255,0.2)">
+        <div class="font-black font-display text-5xl md:text-6xl neon-glow" style="color:#00C2FF;letter-spacing:-2px" id="ai-ops-counter">35,247</div>
+        <div class="text-left">
+          <div style="color:#FFFFFF" class="text-lg font-semibold leading-tight">operations / hr</div>
+          <div class="text-slate-500 text-sm mt-0.5">proprietary AI research infrastructure</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="glass-card p-8 reveal" style="transition-delay:0.1s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,rgba(14,165,233,0.2),rgba(14,165,233,0.05))">
+          <svg width="22" height="22" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-slate-900 mb-3">Process Mapping in Hours</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">During discovery, we model your end-to-end process landscape using AI-assisted analysis tools. What used to take weeks of consultant hours compresses to days — without sacrificing rigour.</p>
+      </div>
+      <div class="glass-card p-8 reveal" style="transition-delay:0.2s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,rgba(14,165,233,0.2),rgba(14,165,233,0.05))">
+          <svg width="22" height="22" fill="none" stroke="#00C2FF" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-slate-900 mb-3">Continuously Updated Intelligence</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Industry benchmarks, regulatory changes, and process best-practices are ingested continuously. Your process designs are always based on current standards.</p>
+      </div>
+      <div class="glass-card p-8 reveal" style="transition-delay:0.3s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(16,185,129,0.05))">
+          <svg width="22" height="22" fill="none" stroke="#10b981" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-slate-900 mb-3">10,000+ Agent Reviews</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Every process design, automation blueprint, and BI architecture passes through automated multi-agent quality checks before delivery.</p>
+      </div>
+    </div>
+    <div class="text-center reveal">
+      <p class="text-slate-600 text-base">Backed by <span class="text-slate-900 font-semibold">50+ enterprise projects</span> across Australian government, financial services, utilities, and manufacturing — with production deployments under APRA, AML/CTF, and NSW Government frameworks.</p>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var el=document.getElementById('ai-ops-counter');
+    if(!el)return;
+    var base=35200,range=150;
+    var tick=function(){
+      var v=base+Math.floor(Math.random()*range);
+      el.textContent=v.toLocaleString();
+      setTimeout(tick,1600+Math.floor(Math.random()*1400));
+    };
+    setTimeout(tick,2500);
+  })();
+  </script>
+</section>
+
+<!-- ── Agentic Systems Built ── -->
+<section class="py-24 relative" id="agentic-systems">
+  <style>
+  .ticker-wrap{overflow:hidden;padding:18px 0;background:rgba(0,194,255,0.04);border-top:1px solid rgba(0,194,255,0.1);border-bottom:1px solid rgba(0,194,255,0.1)}
+  .ticker-track{display:flex;gap:0;animation:tickerScroll 32s linear infinite;width:max-content}
+  .ticker-track:hover{animation-play-state:paused}
+  .ticker-pill{display:inline-flex;align-items:center;gap:8px;padding:0 28px;white-space:nowrap;font-size:0.8rem;color:#8BB4CC}
+  .ticker-dot{width:6px;height:6px;border-radius:50%;background:#00C2FF;flex-shrink:0}
+  .ticker-name{color:#FFFFFF;font-weight:500}
+  .ticker-cat{color:#8BB4CC}
+  @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .agent-counter-card{background:rgba(255,255,255,0.04);border:1px solid rgba(0,194,255,0.12);border-radius:16px;padding:28px 20px;text-align:center;transition:all 0.3s}
+  .agent-counter-card:hover{border-color:rgba(0,194,255,0.3);background:rgba(0,194,255,0.06);transform:translateY(-3px)}
+  .agent-counter-num{font-family:'Space Grotesk',sans-serif;font-size:2.75rem;font-weight:900;color:#00C2FF;line-height:1;letter-spacing:-1px}
+  .agent-counter-label{color:#8BB4CC;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;margin-top:6px}
+  </style>
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-electric-500 text-sm font-semibold tracking-widest uppercase">Proof of Build</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-4">Agentic Systems Built</h2>
+      <p class="text-slate-600 text-lg max-w-2xl mx-auto">The same agentic patterns deployed for enterprise clients run ProcessBI's own operations — making every engagement an improvement on the last. Real counts, updated continuously.</p>
+    </div>
+    <!-- Counter cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 reveal">
+      <div class="agent-counter-card">
+        <div class="flex justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="1.5"><circle cx="12" cy="5" r="2.5"/><circle cx="4" cy="19" r="2.5"/><circle cx="20" cy="19" r="2.5"/><line x1="12" y1="7.5" x2="4" y2="16.5"/><line x1="12" y1="7.5" x2="20" y2="16.5"/><line x1="4" y1="21.5" x2="20" y2="21.5" opacity="0.35"/></svg>
+        </div>
+        <div class="agent-counter-num" id="ag-total">0</div>
+        <div class="agent-counter-label">Agents &amp; Workers Built</div>
+      </div>
+      <div class="agent-counter-card">
+        <div class="flex justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+        </div>
+        <div class="agent-counter-num" id="ag-jobs">0</div>
+        <div class="agent-counter-label">Production Pipelines Running</div>
+      </div>
+      <div class="agent-counter-card">
+        <div class="flex justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <div class="agent-counter-num" id="ag-skills">0</div>
+        <div class="agent-counter-label">Specialised Skills Deployed</div>
+      </div>
+      <div class="agent-counter-card">
+        <div class="flex justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="1.5"><rect x="2" y="7" width="5" height="10" rx="1"/><rect x="9.5" y="4" width="5" height="16" rx="1"/><rect x="17" y="9" width="5" height="8" rx="1"/></svg>
+        </div>
+        <div class="agent-counter-num" id="ag-companies">0</div>
+        <div class="agent-counter-label">Agentic Systems Delivered</div>
+      </div>
+    </div>
+    <!-- Scrolling ticker -->
+    <div class="ticker-wrap reveal">
+      <div class="ticker-track" id="agent-ticker-track">
+        <!-- Set 1 -->
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">NightFactory Core</span><span class="ticker-cat"> — AI Operations</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">FundChecker</span><span class="ticker-cat"> — FinTech Intelligence</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">AtomicAudit</span><span class="ticker-cat"> — SMSF Compliance</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">TradiePro</span><span class="ticker-cat"> — Trade Services AI</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">PRISMEngine</span><span class="ticker-cat"> — Social Intelligence</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">DesignersMeet</span><span class="ticker-cat"> — Creative Commerce</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">Forge PM</span><span class="ticker-cat"> — Project Intelligence</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">ProcessBI</span><span class="ticker-cat"> — Data Platform</span></div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">NightFactory Core</span><span class="ticker-cat"> — AI Operations</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">FundChecker</span><span class="ticker-cat"> — FinTech Intelligence</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">AtomicAudit</span><span class="ticker-cat"> — SMSF Compliance</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">TradiePro</span><span class="ticker-cat"> — Trade Services AI</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">PRISMEngine</span><span class="ticker-cat"> — Social Intelligence</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">DesignersMeet</span><span class="ticker-cat"> — Creative Commerce</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">Forge PM</span><span class="ticker-cat"> — Project Intelligence</span></div>
+        <div class="ticker-pill"><span class="ticker-dot"></span><span class="ticker-name">ProcessBI</span><span class="ticker-cat"> — Data Platform</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+/* AGENT_REGISTRY — auto-updated by audit script */
+(function(){
+  var AGENT_REGISTRY = {
+    totalAgents: 1315,
+    scheduledJobs: 75,
+    skillsInstalled: 19,
+    companiesBuilt: 8
+  };
+  function animateCounter(el, target) {
+    if (!el) return;
+    var dur = 1600, start = Date.now();
+    function tick() {
+      var p = Math.min((Date.now()-start)/dur, 1);
+      var eased = 1 - Math.pow(1-p, 3);
+      el.textContent = Math.floor(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    tick();
+  }
+  function initAgentCounters() {
+    animateCounter(document.getElementById('ag-total'), AGENT_REGISTRY.totalAgents);
+    animateCounter(document.getElementById('ag-jobs'), AGENT_REGISTRY.scheduledJobs);
+    animateCounter(document.getElementById('ag-skills'), AGENT_REGISTRY.skillsInstalled);
+    animateCounter(document.getElementById('ag-companies'), AGENT_REGISTRY.companiesBuilt);
+  }
+  var sec = document.getElementById('agentic-systems');
+  if (sec && typeof IntersectionObserver !== 'undefined') {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { initAgentCounters(); obs.unobserve(sec); } });
+    }, {threshold: 0.2});
+    obs.observe(sec);
+  } else { initAgentCounters(); }
+})();
+</script>
+
+<!-- ── Why ProcessBI ── -->
+<section class="py-24 relative" style="background:rgba(255,255,255,0.02)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <span class="text-electric-500 text-sm font-semibold tracking-widest uppercase">Why ProcessBI</span>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-4 mb-6">Process First.<br>Technology Second. Always.</h2>
+        <p class="text-slate-600 leading-relaxed mb-6">Most BI firms start with the technology. We start with your processes. When the process is right, the data tells a clear story. When it's broken, no dashboard can fix it. ProcessBI brings 15+ years of business process consulting and data intelligence expertise to every Australian enterprise engagement — from process mapping workshops through Microsoft Fabric implementation. When organisations across government, financial services, and manufacturing need a process improvement consultant in Australia who also understands the data platform, ProcessBI is the only firm that closes both gaps in one engagement.</p>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(14,165,233,0.06)"><svg width="14" height="14" fill="#0ea5e9" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><h4 class="text-slate-900 font-medium text-sm">Proactive by design</h4><p class="text-slate-500 text-sm mt-0.5">We identify process gaps, bottlenecks, and risk points before they become incidents. Our business process mapping surfaces what's going wrong — and what will go wrong — before it costs you. Every process audit begins with a structured baseline, not a blank whiteboard.</p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(14,165,233,0.06)"><svg width="14" height="14" fill="#0ea5e9" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><h4 class="text-slate-900 font-medium text-sm">Process-first delivery</h4><p class="text-slate-500 text-sm mt-0.5">Every engagement starts with understanding and redesigning how your business actually works — not with choosing a tool.</p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(14,165,233,0.06)"><svg width="14" height="14" fill="#0ea5e9" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><h4 class="text-slate-900 font-medium text-sm">Measurable process gains</h4><p class="text-slate-500 text-sm mt-0.5">We measure cycle time reduction, error rates, handoff delays, and automation coverage — not just dashboard aesthetics.</p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(14,165,233,0.06)"><svg width="14" height="14" fill="#0ea5e9" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><h4 class="text-slate-900 font-medium text-sm">AI Research Engine &amp; Agentic AI Consulting</h4><p class="text-slate-500 text-sm mt-0.5">12 autonomous agents continuously researching benchmarks, regulatory updates, and process standards — the same agentic AI patterns we deploy for clients, running ProcessBI's own operations. Australia's first truly AI-native process intelligence consultancy.</p></div>
+          </div>
+        </div>
+        <div class="flex gap-4 mt-10">
+          <a href="about.html" class="btn-primary">Our Approach</a>
+          <a href="methodology.html" class="btn-outline">How We Work</a>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.2s">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="glass-card p-6 text-center">
+            <div class="text-3xl font-black font-display gradient-text-blue">15+</div>
+            <div class="text-slate-500 text-xs mt-1 uppercase tracking-wider">Years Process &amp; BI Experience</div>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-3xl font-black font-display" style="color:#0ea5e9">50+</div>
+            <div class="text-slate-500 text-xs mt-1 uppercase tracking-wider">Process Engagements</div>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-3xl font-black font-display" style="color:#00C2FF">194</div>
+            <div class="text-slate-500 text-xs mt-1 uppercase tracking-wider">Process Automation Methods</div>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-3xl font-black font-display gradient-text">12</div>
+            <div class="text-slate-500 text-xs mt-1 uppercase tracking-wider">Active AI Agents</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Industries We Serve ── -->
+<section class="py-24 relative">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-electric-500 text-sm font-semibold tracking-widest uppercase">Industries We Serve</span>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-4 mb-4">Every Industry Has Processes<br>Worth Improving</h2>
+      <p class="text-slate-600 max-w-2xl mx-auto">ProcessBI has redesigned processes and built data platforms across every major Australian industry sector. The methodology — process-first, then automation, then business intelligence — is the same. The regulatory context, systems, and business culture are always unique.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="glass-card p-6 reveal" style="transition-delay:0.05s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(14,165,233,0.08)">
+          <svg width="24" height="24" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h4 class="font-display text-base font-semibold text-slate-900 mb-1">Government &amp; Public Sector</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">DTA-aligned analytics, procurement-compliant delivery, audit trails, and citizen-service intelligence for NSW, VIC, and QLD agencies.</p>
+      </div>
+      <div class="glass-card p-6 reveal" style="transition-delay:0.1s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(14,165,233,0.08)">
+          <svg width="24" height="24" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9" y1="14.5" x2="15" y2="14.5"/></svg>
+        </div>
+        <h4 class="font-display text-base font-semibold text-slate-900 mb-1">Financial Services &amp; Super</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">APRA CPS 234 and RG271-aligned risk dashboards, AML/CTF monitoring, fraud detection, and superannuation fund performance analytics.</p>
+      </div>
+      <div class="glass-card p-6 reveal" style="transition-delay:0.15s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(14,165,233,0.08)">
+          <svg width="24" height="24" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h4 class="font-display text-base font-semibold text-slate-900 mb-1">Utilities &amp; Infrastructure</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Asset performance monitoring, outage prediction, operational efficiency dashboards, and AER regulatory reporting — from network operations centres to executive briefing packs.</p>
+      </div>
+      <div class="glass-card p-6 reveal" style="transition-delay:0.2s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(14,165,233,0.08)">
+          <svg width="24" height="24" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 1 4.93 19.07M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83"/></svg>
+        </div>
+        <h4 class="font-display text-base font-semibold text-slate-900 mb-1">Manufacturing &amp; Supply Chain</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">End-to-end production visibility, ISO 9001-aligned quality analytics, and logistics intelligence — connecting planning, production, and distribution into a single governed data model.</p>
+      </div>
+      <div class="glass-card p-6 reveal" style="transition-delay:0.25s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(14,165,233,0.08)">
+          <svg width="24" height="24" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4 class="font-display text-base font-semibold text-slate-900 mb-1">Education &amp; Not-for-Profit</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">ACNC-compliant grant reporting, student outcome analytics, and mission-impact dashboards — data platforms that demonstrate value to funders, boards, and regulators, not just management.</p>
+      </div>
+      <div class="glass-card p-6 reveal" style="transition-delay:0.3s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(14,165,233,0.08)">
+          <svg width="24" height="24" fill="none" stroke="#0ea5e9" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <h4 class="font-display text-base font-semibold text-slate-900 mb-1">Retail &amp; Consumer</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Customer lifetime value analytics, inventory intelligence, and omnichannel performance reporting — built on real-time transaction feeds, not end-of-day batch extracts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Technology Partners ── -->
+<section class="py-12 border-y border-slate-100">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="text-center text-slate-400 text-xs font-semibold tracking-widest uppercase mb-8">Built on enterprise-grade platforms</p>
+    <div class="flex flex-wrap items-center justify-center gap-10 opacity-60">
+      <!-- Microsoft -->
+      <div class="flex items-center gap-2.5">
+        <svg width="20" height="20" viewBox="0 0 21 21" fill="none"><rect x="1" y="1" width="9" height="9" fill="#F25022"/><rect x="11" y="1" width="9" height="9" fill="#7FBA00"/><rect x="1" y="11" width="9" height="9" fill="#00A4EF"/><rect x="11" y="11" width="9" height="9" fill="#FFB900"/></svg>
+        <span class="text-slate-600 font-semibold text-sm">Microsoft</span>
+      </div>
+      <!-- Microsoft Fabric -->
+      <div class="flex items-center gap-2.5">
+        <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><rect wi

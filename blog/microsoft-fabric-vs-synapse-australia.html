@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Fabric vs Azure Synapse: Australian Migration Guide | ProcessBI</title>
+<meta name="description" content="A practical Microsoft Fabric migration guide for Australian organisations. When to move from Synapse to Fabric, medallion architecture in production, Direct Lake cutover, and how a Microsoft Fabric consultant Australia approaches the migration.">
+<link rel="canonical" href="https://processbi.com.au/blog/microsoft-fabric-vs-synapse-australia.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ProcessBI">
+<meta property="og:title" content="Microsoft Fabric vs Azure Synapse: What Australian Organisations Need to Know">
+<meta property="og:description" content="When to move from Azure Synapse to Microsoft Fabric, medallion architecture, Direct Lake migration — a practitioner's guide from a Microsoft Fabric consultant in Australia.">
+<meta property="og:url" content="https://processbi.com.au/blog/microsoft-fabric-vs-synapse-australia.html">
+<meta property="og:image" content="https://processbi.com.au/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:{'900':'#0B1A2E'},electric:{'500':'#00C2FF'}},fontFamily:{display:['Space Grotesk','sans-serif'],body:['Inter','sans-serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+.blog-body{max-width:740px;margin:0 auto;padding:0 24px}
+.blog-body h2{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:#0f172a;margin:2.5rem 0 1rem}
+.blog-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:600;color:#1e293b;margin:1.75rem 0 0.75rem}
+.blog-body p{color:#475569;line-height:1.8;margin-bottom:1.25rem}
+.blog-body ul{color:#475569;line-height:1.8;margin-bottom:1.25rem;padding-left:1.5rem}
+.blog-body li{margin-bottom:0.5rem}
+.blog-body strong{color:#1e293b}
+.callout{background:rgba(0,194,255,0.06);border-left:3px solid #00C2FF;border-radius:0 12px 12px 0;padding:20px 24px;margin:2rem 0}
+.callout p{margin-bottom:0}
+.comparison-table{width:100%;border-collapse:collapse;margin:2rem 0}
+.comparison-table th{background:rgba(0,194,255,0.1);padding:12px 16px;text-align:left;font-size:0.85rem;font-weight:600;color:#1e293b;border-bottom:2px solid rgba(0,194,255,0.2)}
+.comparison-table td{padding:10px 16px;font-size:0.875rem;color:#475569;border-bottom:1px solid rgba(0,194,255,0.08)}
+.comparison-table tr:last-child td{border-bottom:none}
+</style>
+</head>
+<body>
+<div class="page-hero" style="padding-top:80px;padding-bottom:60px">
+  <div class="blog-body reveal">
+    <a href="index.html" class="text-electric-500 text-sm font-medium mb-6 block">&#8592; Back to Blog</a>
+    <span class="text-electric-500 text-xs font-semibold tracking-widest uppercase">Microsoft Fabric</span>
+    <h1 class="font-display text-4xl md:text-5xl font-black text-slate-900 mt-4 mb-6 glow-text"><span class="gradient-text">Microsoft Fabric</span> vs Azure Synapse: What Australian Organisations Need to Know</h1>
+    <p class="text-slate-600 text-lg leading-relaxed">A practical migration guide for Australian IT leaders &#x2014; when to move from Synapse to Fabric, what the medallion architecture looks like in production, and how to sequence the cutover without disrupting business reporting.</p>
+    <div class="flex items-center gap-4 mt-6 text-slate-500 text-sm"><span>ProcessBI</span><span>&#xb7;</span><span>June 2026</span><span>&#xb7;</span><span>10 min read</span></div>
+  </div>
+</div>
+<article class="py-12">
+  <div class="blog-body reveal">
+    <p>Most Australian organisations running Azure Synapse Analytics are now evaluating Microsoft Fabric. The timing of that evaluation matters: moving too early means friction and unsupported features; moving too late means accumulating technical debt on a platform that Microsoft is actively de-investing. This guide gives Australian IT leaders a framework for deciding when and how to migrate.</p>
+    <p>ProcessBI was among the first Microsoft Fabric consultants in Australia to complete production migrations before Fabric reached General Availability. That early experience &#x2014; including the mistakes that came with it &#x2014; shapes the approach described here.</p>
+    <h2>Microsoft Fabric vs Azure Synapse: The Key Differences</h2>
+    <p>Azure Synapse Analytics was Microsoft's attempt to unify data warehousing, data integration, and analytics on a single platform. It succeeded partially: the dedicated SQL pool (formerly SQL DW) remained the core compute layer, pipelines were a wrapper around ADF, and Synapse Notebooks were a thin Spark runtime. The experience across these components was inconsistent and the billing model complex.</p>
+    <p>Microsoft Fabric is a different architectural philosophy. OneLake is the universal storage layer &#x2014; a single Delta Parquet store shared across Lakehouses, Warehouses, KQL Databases, and Eventstreams. All Fabric workloads read from and write to the same physical storage, eliminating data copying between services. Billing is unified through capacity (F-SKUs or P-SKUs), replacing the per-service billing of Synapse.</p>
+
+    <table class="comparison-table">
+      <tr><th>Dimension</th><th>Azure Synapse</th><th>Microsoft Fabric</th></tr>
+      <tr><td>Storage model</td><td>Per-service silos (ADLS Gen2, DWH, Spark)</td><td>Single OneLake (Delta Parquet)</td></tr>
+      <tr><td>Compute billing</td><td>Per-service (DWH DWU, Spark node-hours)</td><td>Unified capacity (F-SKU CUs)</td></tr>
+      <tr><td>Power BI integration</td><td>External connection required</td><td>Native — Direct Lake in same OneLake</td></tr>
+      <tr><td>Pipeline authoring</td><td>Synapse Pipelines (ADF-compatible)</td><td>Fabric Pipelines (ADF-compatible + Fabric-native)</td></tr>
+      <tr><td>ML integration</td><td>Azure ML workspace (external)</td><td>Fabric ML experiments (in-platform)</td></tr>
+      <tr><td>Microsoft roadmap investment</td><td>Maintenance mode</td><td>Primary investment focus</td></tr>
+    </table>
+
+    <h2>When Should an Australian Organisation Migrate to Fabric?</h2>
+    <p>Not every organisation should migrate immediately. The decision depends on where the cost-benefit falls for your specific context.</p>
+    <p><strong>Migrate now if:</strong> your Synapse dedicated pool is your primary cost driver and you have predictable query patterns that would benefit from Direct Lake; you are running multiple Synapse workspaces that could consolidate onto a single Fabric capacity; or you have a strategic requirement for real-time analytics that Fabric Eventstream and KQL serve better than Synapse RT.</p>
+    <p><strong>Wait if:</strong> you have significant SSIS-based ETL that has not yet been migrated to ADF; you rely on Synapse Link features that do not yet have direct Fabric equivalents; or you are in a regulated environment that requires Fabric features to reach IRAP or ISM maturity before you can adopt them.</p>
+    <p><strong>Accelerate if:</strong> you are planning a new data platform build. Starting on Fabric today avoids building on a platform Microsoft is de-investing, and the architecture you would build on Synapse and the architecture you would build on Fabric are similar enough that the design work translates directly.</p>
+    <h2>The Medallion Architecture in Microsoft Fabric</h2>
+    <p>The medallion (Bronze / Silver / Gold) architecture is the standard pattern for Microsoft Fabric implementation in Australia and globally. It organises data into three logical layers within OneLake:</p>
+    <ul>
+      <li><strong>Bronze (raw)</strong>: data as it arrives from source systems &#x2014; no transformation, no validation. Preserves the exact state of the source at ingestion time. Enables replay from source if transformation logic changes.</li>
+      <li><strong>Silver (conformed)</strong>: cleaned, typed, and business-rule-validated data. Typically structured as Delta tables with consistent schemas. The Silver layer is where most data quality and governance controls apply.</li>
+      <li><strong>Gold (served)</strong>: aggregated, metric-calculated, and domain-aligned data optimised for consumption. Gold tables feed Direct Lake semantic models and Fabric Warehouses for SQL-based reporting.</li>
+    </ul>
+    <p>The medallion pattern is not new &#x2014; it derives from Databricks' original lakehouse architecture &#x2014; but Fabric's OneLake makes it native rather than assembled from separate services. All three layers share the same physical storage; there is no data movement between layers, only in-place transformation and Delta table updates.</p>
+    <h2>Direct Lake: The Core Benefit for Power BI</h2>
+    <p>Direct Lake is the feature that fundamentally changes Power BI's relationship with data in Fabric. In traditional Power BI semantic models, data is either imported (copied into the model's compressed in-memory store) or queried via DirectQuery (live queries to the source at report load time). Both approaches have trade-offs: Import is fast but creates a copy that requires refresh; DirectQuery is always current but query performance depends on the source system.</p>
+    <p>Direct Lake reads Delta Parquet files in OneLake directly into the Vertipaq memory engine &#x2014; without importing a copy and without issuing live queries. When data in OneLake changes, the semantic model sees the change immediately on the next query. The result is Import-equivalent query performance with DirectQuery-equivalent freshness.</p>
+    <p>The practical implication for Australian organisations migrating from Synapse: Power BI reports that were previously on Import schedules (refreshing overnight or hourly) can switch to Direct Lake and show live data without any refresh configuration. That eliminates a category of operational overhead that affects most large Power BI estates.</p>
+    <h2>How a Microsoft Fabric Migration Should Be Sequenced</h2>
+    <p>ProcessBI's Fabric migration consultant approach follows a five-stage sequence that keeps business reporting operational throughout:</p>
+    <ul>
+      <li><strong>Stage 1 &#x2014; Tenancy audit</strong>: Document existing Synapse workspaces, pipeline dependencies, semantic model counts, and report inventory. Establish the current-state architecture baseline.</li>
+      <li><strong>Stage 2 &#x2014; Fabric tenancy design</strong>: Define workspace structure, capacity sizing (F-SKU selection), security model (Entra ID groups, RLS/OLS, Private Link), and the Bronze/Silver/Gold layer design.</li>
+      <li><strong>Stage 3 &#x2014; Bronze build</strong>: Migrate ADF pipelines or SSIS packages to Fabric Pipelines. Ingest raw data into OneLake Bronze Lakehouse. Validate row counts against Synapse source.</li>
+      <li><strong>Stage 4 &#x2014; Silver/Gold transformation and semantic model cutover</strong>: Build Silver transformations in PySpark notebooks. Build Gold aggregations as Delta tables. Migrate SSAS Tabular or legacy Power BI import datasets to Direct Lake semantic models. Validate DAX results against existing reports.</li>
+      <li><strong>Stage 5 &#x2014; Parallel run and cutover</strong>: Run Fabric and Synapse in parallel for a defined period (typically 2&#x2013;4 weeks). Confirm report outputs match. Decommission Synapse workspaces and dedicated pool.</li>
+    </ul>
+    <div class="callout">
+      <p><strong>ProcessBI provides Microsoft Fabric implementation in Australia</strong> from tenancy design through production cutover. We have completed migrations from Azure Synapse, on-premises SSAS Tabular, and SSIS-based ETL environments. <a href="../contact.html" style="color:#00C2FF">Book a 30-minute architecture review</a> to discuss your migration.</p>
+    </div>
+    <h2>Common Migration Pitfalls</h2>
+    <p><strong>Migrating the current architecture directly instead of redesigning it.</strong> Synapse architectures were often built around the constraints of Synapse &#x2014; multiple workspaces for separation, ADF pipelines to move data between services, import datasets to avoid DirectQuery latency. Those workarounds are unnecessary in Fabric. Migrating them as-is imports technical debt. The migration is an opportunity to clean the architecture, not just move it.</p>
+    <p><strong>Under-sizing the Fabric capacity.</strong> Fabric F-SKU selection affects both query performance and pipeline throughput. Under-sizing leads to throttling during parallel runs &#x2014; which makes the parallel run look like Fabric is slower than Synapse, when the problem is capacity configuration. Right-sizing requires load testing under realistic query patterns before go-live.</p>
+    <p><strong>Not running a parallel period.</strong> The most common source of migration risk is cutting over without a period of parallel running where Fabric outputs are validated against Synapse outputs on the same live data. Every Microsoft Fabric migration project ProcessBI has run has found at least one discrepancy during parallel run that would have been invisible without it.</p>
+    <hr style="border:none;border-top:1px solid rgba(0,194,255,0.12);margin:3rem 0">
+    <div class="glass-card p-6">
+      <h3 class="font-display text-lg font-semibold text-slate-900 mb-2">Planning a Synapse to Fabric migration?</h3>
+      <p>ProcessBI is a <a href="../technology.html" style="color:#00C2FF">Microsoft Fabric consultant in Australia</a> with completed production migrations from Synapse, SSAS, and on-premises DWH environments. Book a 30-minute architecture review.</p>
+      <a href="../contact.html" class="btn-primary mt-4 inline-block">Book an Architecture Review</a>
+    </div>
+  </div>
+</article>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Microsoft Fabric vs Azure Synapse: What Australian Organisations Need to Know","description":"A practical Microsoft Fabric migration guide for Australian organisations — medallion architecture, Direct Lake, and migration sequencing.","author":{"@type":"Organization","name":"ProcessBI","url":"https://processbi.com.au"},"publisher":{"@type":"Organization","name":"ProcessBI","url":"https://processbi.com.au"},"datePublished":"2026-06-20","dateModified":"2026-06-20","url":"https://processbi.com.au/blog/microsoft-fabric-vs-synapse-australia.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://processbi.com.au/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://processbi.com.au/blog/"},{"@type":"ListItem","position":3,"name":"Microsoft Fabric vs Synapse Australia","item":"https://processbi.com.au/blog/microsoft-fabric-vs-synapse-australia.html"}]}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../shared-nav.js"></script>
+</body>
+</html>

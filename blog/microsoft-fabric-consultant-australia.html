@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Fabric in 2026: What Australian Organisations Need to Know Before Migrating | ProcessBI</title>
+<meta name="description" content="Real lessons from Australian Microsoft Fabric early adopters — OneLake architecture, Fabric vs Synapse, migration phases, APRA CPS 234 considerations, and what a Microsoft Fabric consultant in Australia actually does.">
+<link rel="canonical" href="https://processbi.com.au/blog/microsoft-fabric-consultant-australia.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ProcessBI">
+<meta property="og:title" content="Microsoft Fabric in 2026: What Australian Organisations Need to Know Before Migrating">
+<meta property="og:description" content="Real lessons from Australian Fabric adopters — OneLake, Fabric vs Synapse, migration phases, APRA CPS 234, and what a Microsoft Fabric consultant Australia actually delivers.">
+<meta property="og:url" content="https://processbi.com.au/blog/microsoft-fabric-consultant-australia.html">
+<meta property="og:image" content="https://processbi.com.au/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@processbi">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:{'900':'#0B1A2E'},electric:{'500':'#00C2FF'}},fontFamily:{display:['Space Grotesk','sans-serif'],body:['Inter','sans-serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="blog.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Microsoft Fabric in 2026: What Australian Organisations Need to Know Before Migrating","description":"Real lessons from Australian Microsoft Fabric early adopters — OneLake architecture, Fabric vs Synapse, migration phases, and APRA CPS 234 considerations.","author":{"@type":"Organization","name":"ProcessBI","url":"https://processbi.com.au"},"publisher":{"@type":"Organization","name":"ProcessBI","url":"https://processbi.com.au"},"datePublished":"2026-06-20","dateModified":"2026-06-20","url":"https://processbi.com.au/blog/microsoft-fabric-consultant-australia.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://processbi.com.au/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://processbi.com.au/blog/"},{"@type":"ListItem","position":3,"name":"Microsoft Fabric Consultant Australia","item":"https://processbi.com.au/blog/microsoft-fabric-consultant-australia.html"}]}</script>
+</head>
+<body>
+<div class="blog-post-hero">
+  <div class="max-w-3xl mx-auto" style="position:relative;z-index:1">
+    <a href="index.html" style="color:#00C2FF;font-size:0.875rem;font-weight:500;display:block;margin-bottom:24px">&#8592; Back to Blog</a>
+    <span class="blog-card-category">Data Platform</span>
+    <h1 class="font-display text-4xl md:text-5xl font-black text-white mt-4 mb-6" style="line-height:1.15">Microsoft Fabric in 2026: What Australian Organisations Need to Know <span style="background:linear-gradient(90deg,#00C2FF,#1A7FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Before Migrating</span></h1>
+    <p style="color:#8BB4CC;font-size:1.125rem;line-height:1.75;margin-bottom:0">Real lessons from Australian Fabric early adopters — OneLake architecture, Fabric vs Synapse, migration phases, APRA CPS 234 considerations, and what a Microsoft Fabric consultant in Australia actually delivers on a production engagement.</p>
+    <div style="display:flex;align-items:center;gap:12px;margin-top:20px;font-size:0.875rem;color:#64748b"><span>ProcessBI</span><span style="color:#334155">·</span><span>June 2026</span><span style="color:#334155">·</span><span>10 min read</span></div>
+  </div>
+</div>
+<article class="blog-article">
+  <div class="article-body">
+    <p>Most Australian organisations evaluating Microsoft Fabric are approaching it correctly — cautiously. Fabric reached General Availability in November 2023 and has iterated rapidly since. By mid-2026, the platform is mature enough for enterprise production workloads. It is also mature enough that the gap between organisations who migrated thoughtfully and those who rushed has become measurable.</p>
+    <p>ProcessBI was among the first Microsoft Fabric consultants operating in Australia to complete production migrations before GA. The lessons from those early migrations — and from the ones that followed — shape everything in this article.</p>
+
+    <h2>What Microsoft Fabric Actually Is (And What It Isn't)</h2>
+    <p>Microsoft Fabric is not a single product. It is a unified SaaS platform built on OneLake — a single logical data store built on Azure Data Lake Storage Gen2 with Delta Parquet as the native format. Sitting on top of OneLake are six workloads: Data Engineering (Spark notebooks and Lakehouses), Data Factory (pipelines), Data Warehouse (T-SQL), Real-Time Intelligence (Eventstream, KQL, Data Activator), Data Science (ML experiments), and Power BI.</p>
+    <p>The unifying principle is that all six workloads read from and write to the same OneLake storage. There is no data movement between workloads — a Spark notebook and a Power BI Direct Lake semantic model are reading the same Delta files. This is fundamentally different from Azure Synapse, where data moved between Synapse Spark, Synapse SQL, and Power BI datasets via separate connections and refresh processes.</p>
+    <p><strong>What Fabric is not:</strong> it is not a replacement for all Azure data services. Azure Data Factory, Azure Databricks, Azure SQL Database, and Azure Event Hubs all have use cases that remain valid. For most Australian organisations, Fabric is not a rip-and-replace — it is the primary analytics platform, with Azure services retained where Fabric does not have a native equivalent.</p>
+
+    <h2>The Case for Migrating from Azure Synapse</h2>
+    <p>Microsoft has been explicit: Azure Synapse Analytics is in sustaining mode. No significant new capabilities are being shipped; the investment is in Fabric. For Australian organisations running Synapse dedicated pools, the strategic question is not whether to migrate — it is when and how.</p>
+    <p>The financial case is straightforward for most organisations. A Synapse dedicated pool running at DW1000c incurs compute cost whether queries are running or not. Fabric F-SKUs use Compute Units (CUs) that can be paused and scaled, and the Direct Lake semantic model eliminates the Power BI dataset refresh overhead that was a significant compute driver in many Synapse environments.</p>
+    <p>The architectural case is equally clear. Synapse workspaces required multiple linked services, integration runtimes, and pipeline activities to move data between its own components. Fabric's unified storage eliminates most of that movement. An architecture that required six services in Synapse often requires two or three in Fabric.</p>
+
+    <h2>Medallion Architecture on Microsoft Fabric: What it Looks Like in Production</h2>
+    <p>The Bronze / Silver / Gold medallion pattern is the dominant architecture for Microsoft Fabric implementation in Australia. In production, it looks like this:</p>
+    <p><strong>Bronze Lakehouse</strong> holds raw source data exactly as it arrived — no transformations, no schema changes, no validation. Fabric Pipelines (or ADF for complex orchestration) load Bronze via REST, SFTP, SAP ODP, SharePoint, or direct database connectors. Bronze is append-only and partitioned by ingestion date. It is the archive of record.</p>
+    <p><strong>Silver Lakehouse</strong> holds conformed, typed, and validated data. PySpark notebooks run transformations from Bronze to Silver on a schedule or via event trigger. Schema validation, null handling, deduplication, and business key standardisation happen in Silver. Silver is the layer that data engineering tests are written against.</p>
+    <p><strong>Gold Lakehouse or Fabric Warehouse</strong> holds aggregated, metric-calculated data optimised for consumption. Gold can be either Delta tables in a Lakehouse (for Direct Lake semantic models) or a Fabric Warehouse (for T-SQL consumers). For most Australian organisations, Direct Lake from a Gold Lakehouse provides the best balance of query performance and data freshness.</p>
+
+    <h2>Direct Lake: The Feature That Changes the Power BI Model</h2>
+    <p>Direct Lake is the architectural shift that makes Fabric the default choice for Power BI-heavy organisations. In the traditional Power BI model, datasets are either Import (copy of data, fast queries, refresh required) or DirectQuery (live queries, slower, no refresh). Direct Lake reads Delta Parquet files in OneLake directly into the Vertipaq engine — achieving Import query speeds without maintaining a copy and without requiring scheduled refresh.</p>
+    <p>The practical implication: Power BI reports that previously had overnight or hourly refresh schedules show live data without any refresh configuration. For Australian financial services organisations running daily regulatory reporting, this alone is a significant operational change — reports that were based on yesterday's data are now based on today's.</p>
+    <p>Direct Lake has constraints: it requires the semantic model to be in a Fabric workspace with a Fabric capacity (not Power BI Premium). And not all DAX expressions are fully supported in Direct Lake fallback scenarios. These constraints are well-understood and manageable for a prepared Microsoft Fabric consultant — they are a surprise for teams who assumed Direct Lake would be a drop-in replacement for their existing datasets.</p>
+
+    <h2>APRA CPS 234 and Microsoft Fabric: What Regulated Organisations Need to Know</h2>
+    <p>Australian financial services organisations operating under APRA's CPS 234 (Information Security) have specific obligations around data security, access control, and incident reporting that apply to Fabric tenancy design. The key considerations are:</p>
+    <p><strong>Fabric tenant isolation:</strong> OneLake is a tenant-level resource. A poorly-configured Fabric tenancy can expose workspaces across different business units or external contractors. Role assignments at workspace level must be governed centrally — not delegated to individual workspace owners without controls.</p>
+    <p><strong>Private Link and network security:</strong> Fabric supports Private Link for network isolation. For APRA-regulated entities with strict network segmentation requirements, Private Link must be configured before production data is ingested. Retrofitting Private Link after go-live requires a maintenance window and can cause pipeline disruption.</p>
+    <p><strong>Data lineage and audit trails:</strong> APRA CPS 234 expects demonstrable control over information assets. Microsoft Purview integrated with Fabric provides automated data lineage from source to semantic model. For regulated organisations, this is not optional — it is the evidence that satisfies auditor requests.</p>
+
+    <div class="blog-callout">
+      <p><strong>ProcessBI provides Microsoft Fabric implementation in Australia</strong> for government, financial services, and utilities organisations. Our engagements are designed with APRA, ISM, and DTA requirements built in from the tenancy design stage — not added as an afterthought. <a href="../contact.html">Book a 30-minute architecture review</a> to discuss your migration.</p>
+    </div>
+
+    <h2>The Migration Sequence That Works</h2>
+    <p>Every Microsoft Fabric migration ProcessBI has run in Australia follows the same five-stage sequence. Deviating from it has, in every case, added time rather than saved it.</p>
+    <p><strong>Stage 1 — Tenancy audit.</strong> Document existing data estate: pipeline inventory, semantic model count, report count, user access model, and compute costs. This is the baseline against which migration ROI will be measured.</p>
+    <p><strong>Stage 2 — Fabric tenancy design.</strong> Define workspace topology, F-SKU sizing, security model (Entra ID groups, RLS, OLS, Private Link), and OneLake folder structure. Get signoff before building anything.</p>
+    <p><strong>Stage 3 — Bronze build.</strong> Migrate or rebuild ingestion pipelines to load raw data into Bronze Lakehouse. Validate row counts against source.</p>
+    <p><strong>Stage 4 — Silver/Gold build and semantic model cutover.</strong> Build Silver transformations in PySpark. Build Gold aggregations. Migrate Power BI datasets to Direct Lake semantic models. Validate DAX results against legacy reports before switching users.</p>
+    <p><strong>Stage 5 — Parallel run and cutover.</strong> Run Fabric and legacy platform simultaneously for 2–4 weeks. Compare outputs on the same live data. Decommission legacy services after validation passes.</p>
+    <p>The parallel run is not optional. Every migration ProcessBI has run has found at least one meaningful discrepancy during the parallel period — a transformation logic difference, a timezone handling issue, a rounding behaviour in DAX that produced a different result from the legacy calculation. Catching these during parallel is the point.</p>
+
+  </div>
+</article>
+
+<!-- Related Services -->
+<section class="related-services">
+  <div class="max-w-6xl mx-auto">
+    <div class="related-services-label">Related Services</div>
+    <h2>How ProcessBI Can Help</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="../technology.html" class="glass-card" style="padding:28px;text-decoration:none;display:block">
+        <div style="width:44px;height:44px;background:rgba(0,194,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" fill="none" stroke="#00C2FF" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <h3 style="fo

@@ -1,0 +1,342 @@
+/* ── ProcessBI shared styles — Dark Premium Theme ── */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:#0B1A2E;
+  background-image:radial-gradient(ellipse at 50% 0%,#0D2347 0%,#0B1A2E 70%);
+  color:#FFFFFF;
+  overflow-x:hidden;
+  min-height:100vh
+}
+h1,h2,h3,h4,h5,h6{letter-spacing:-0.02em;line-height:1.1}
+section{background:transparent}
+.section-alt{background:rgba(255,255,255,0.02)}
+
+/* ── Tailwind slate / color overrides for dark theme ── */
+.text-slate-950,.text-slate-900{color:#FFFFFF !important}
+.text-slate-800{color:#E2E8F0 !important}
+.text-slate-700{color:#CBD5E1 !important}
+.text-slate-600{color:#8BB4CC !important}
+.text-slate-500{color:#94A3B8 !important}
+.text-slate-400{color:#94A3B8 !important}
+.text-electric-500,.text-accent-teal{color:#00C2FF !important}
+.text-accent-emerald{color:#10b981 !important}
+.bg-slate-50{background:rgba(255,255,255,0.02) !important}
+.bg-slate-100{background:rgba(255,255,255,0.04) !important}
+.bg-white{background:rgba(255,255,255,0.04) !important}
+.border-slate-100,.border-slate-200,.border-slate-300{border-color:rgba(0,194,255,0.12) !important}
+.text-white{color:#FFFFFF !important}
+/* Force dark text on specific Tailwind prose elements */
+p.text-slate-600,li.text-slate-600,div.text-slate-600{color:#8BB4CC !important}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0B1A2E}
+::-webkit-scrollbar-thumb{background:rgba(0,194,255,0.3);border-radius:3px}
+
+/* ── Three.js fixed canvas ── */
+#bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
+/* ── Nav ── */
+.nav-blur{
+  backdrop-filter:blur(20px);
+  background:rgba(11,26,46,0.72);
+  border-bottom:1px solid rgba(0,194,255,0.1)
+}
+#navbar{transition:border-color 0.3s}
+
+/* ── Glass card ── */
+.glass-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(0,194,255,0.15);
+  border-radius:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.25),0 4px 12px rgba(0,0,0,0.2);
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1)
+}
+.glass-card:hover{
+  background:rgba(0,194,255,0.08);
+  border-color:rgba(0,194,255,0.35);
+  transform:translateY(-2px);
+  box-shadow:0 4px 20px rgba(0,194,255,0.12),0 1px 4px rgba(0,0,0,0.3)
+}
+
+/* ── Gradient text ── */
+.gradient-text{
+  background:linear-gradient(135deg,#00C2FF,#1EAEFF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+}
+.gradient-text-blue{
+  background:linear-gradient(135deg,#00C2FF,#1EAEFF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+}
+.glow-text{color:#FFFFFF}
+
+/* ── Mesh gradients ── */
+.mesh-gradient{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(150px);opacity:0.07;pointer-events:none}
+
+/* ── Dividers ── */
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,194,255,0.25),transparent)}
+
+/* ── Buttons ── */
+.btn-primary{
+  background:linear-gradient(135deg,#00C2FF,#1A7FFF);
+  color:#ffffff;
+  font-weight:600;padding:14px 32px;border-radius:8px;
+  transition:all 0.3s;display:inline-block;text-decoration:none;cursor:pointer;border:none
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 30px rgba(0,194,255,0.4),0 10px 40px rgba(0,194,255,0.2)
+}
+.btn-outline{
+  border:1px solid rgba(0,194,255,0.4);
+  color:#00C2FF;
+  padding:14px 32px;border-radius:8px;
+  transition:all 0.3s;display:inline-block;text-decoration:none;cursor:pointer;background:transparent
+}
+.btn-outline:hover{background:rgba(0,194,255,0.1);border-color:#00C2FF}
+
+/* ── Timeline ── */
+.timeline-dot{width:16px;height:16px;background:#00C2FF;border-radius:50%;box-shadow:0 0 20px rgba(0,194,255,0.6)}
+
+/* ── Brand label ── */
+.brand-label{
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#00C2FF;font-weight:600
+}
+
+/* ── Hero tagline line ── */
+.hero-tagline-line{
+  display:inline-block;width:32px;height:2px;background:#1A7FFF;
+  margin-right:12px;vertical-align:middle
+}
+
+/* ── Neon glow ── */
+.neon-glow{text-shadow:0 0 40px rgba(0,194,255,0.5)}
+
+/* ── Animations ── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse-glow{0%,100%{opacity:0.4}50%{opacity:1}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes spin-slow{to{transform:rotate(360deg)}}
+@keyframes glow-pulse{
+  0%,100%{box-shadow:0 0 20px rgba(0,194,255,0.3)}
+  50%{box-shadow:0 0 40px rgba(0,194,255,0.6)}
+}
+@keyframes data-flow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes starFloat{
+  0%,100%{opacity:0.3;transform:translateY(0)}
+  50%{opacity:0.8;transform:translateY(-3px)}
+}
+
+.animate-float{animation:float 6s ease-in-out infinite}
+.animate-pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+.animate-spin-slow{animation:spin-slow 12s linear infinite}
+.animate-glow-pulse{animation:glow-pulse 2s ease-in-out infinite}
+
+/* ── Scroll reveal ── */
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.4,0,0.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── Metric counter ── */
+.metric-number{
+  font-size:3rem;font-weight:800;
+  font-family:'Space Grotesk',sans-serif;
+  color:#00C2FF
+}
+
+/* ── Tech badge ── */
+.tech-badge{
+  background:rgba(0,194,255,0.06);border:1px solid rgba(0,194,255,0.15);
+  border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:12px;transition:all 0.3s
+}
+.tech-badge:hover{background:rgba(0,194,255,0.1);border-color:rgba(0,194,255,0.3)}
+
+/* ── Tag badges ── */
+.tag-badge{
+  display:inline-block;background:rgba(0,194,255,0.1);border:1px solid rgba(0,194,255,0.2);
+  border-radius:20px;padding:3px 10px;font-size:10px;color:#00C2FF;font-weight:500;margin:2px
+}
+.tag-badge-blue{
+  display:inline-block;background:rgba(0,194,255,0.1);border:1px solid rgba(0,194,255,0.2);
+  border-radius:20px;padding:3px 10px;font-size:10px;color:#00C2FF;font-weight:500;margin:2px
+}
+.tag-badge-green{
+  display:inline-block;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);
+  border-radius:20px;padding:3px 10px;font-size:10px;color:#10b981;font-weight:500;margin:2px
+}
+
+/* ── Client badge ── */
+.client-badge{
+  display:inline-block;background:rgba(0,194,255,0.06);border:1px solid rgba(0,194,255,0.15);
+  border-radius:20px;padding:2px 8px;font-size:10px;color:#8BB4CC;font-weight:500
+}
+
+/* ── Case metric ── */
+.case-metric-value{
+  font-size:1.4rem;font-weight:800;
+  font-family:'Space Grotesk',sans-serif;
+  line-height:1.2;color:#00C2FF
+}
+.case-metric-label{
+  font-size:0.7rem;color:#94A3B8;
+  text-transform:uppercase;letter-spacing:0.04em;margin-top:2px
+}
+
+/* ── Arch flow ── */
+.arch-flow{
+  background:rgba(0,194,255,0.04);border:1px solid rgba(0,194,255,0.12);
+  border-radius:10px;padding:10px 14px;margin-bottom:16px;overflow-x:auto;white-space:nowrap
+}
+.arch-node{
+  display:inline-block;background:rgba(0,194,255,0.1);border:1px solid rgba(0,194,255,0.25);
+  border-radius:6px;padding:3px 9px;font-size:10px;color:#00C2FF;font-weight:500
+}
+.arch-arrow{color:rgba(0,194,255,0.5);margin:0 4px;font-size:11px}
+
+/* ── Form inputs ── */
+.form-input{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(0,194,255,0.2);
+  border-radius:8px;padding:14px 18px;color:#FFFFFF;width:100%;
+  transition:border-color 0.3s;outline:none;font-family:'Inter',sans-serif
+}
+.form-input:focus{border-color:#00C2FF;background:rgba(0,194,255,0.06)}
+.form-input::placeholder{color:#94A3B8}
+
+/* ── Marquee ── */
+.marquee-outer{overflow:hidden;width:100%}
+.marquee-track{display:flex;width:200%;animation:marquee 30s linear infinite;will-change:transform}
+.marquee-track:hover{animation-play-state:paused}
+.logo-tile{
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  height:60px;padding:0 32px;border-right:1px solid rgba(0,194,255,0.06)
+}
+.logo-tile img{
+  height:28px;max-width:100px;object-fit:contain;
+  filter:brightness(0) invert(1) opacity(0.35);
+  transition:filter 0.3s
+}
+.logo-tile:hover img{filter:brightness(0) invert(1) opacity(0.65)}
+.logo-tile .text-fallback{
+  font-size:11px;font-weight:600;color:rgba(139,180,204,0.5);
+  white-space:nowrap;letter-spacing:0.03em;transition:color 0.3s
+}
+.logo-tile:hover .text-fallback{color:#8BB4CC}
+.anon-badge{
+  font-size:10px;font-weight:600;color:rgba(139,180,204,0.7);
+  background:rgba(0,194,255,0.04);border:1px solid rgba(0,194,255,0.1);
+  border-radius:6px;padding:5px 10px;white-space:nowrap
+}
+
+/* ── Industry icon ── */
+.industry-icon{
+  width:48px;height:48px;
+  background:rgba(0,194,255,0.08);
+  border-radius:12px;display:flex;align-items:center;justify-content:center
+}
+
+/* ── Filter buttons ── */
+.filter-btn{
+  padding:8px 20px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;
+  border:1px solid rgba(0,194,255,0.2);background:transparent;color:#94A3B8;
+  transition:all 0.25s
+}
+.filter-btn:hover,.filter-btn.active{
+  background:rgba(0,194,255,0.1);border-color:#00C2FF;color:#00C2FF
+}
+
+/* ── Page hero (non-home pages) ── */
+.page-hero{
+  padding:140px 24px 80px;text-align:center;position:relative
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(0,194,255,0.07) 0%,transparent 70%);
+  pointer-events:none
+}
+
+/* ── Step card (methodology) ── */
+.step-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(0,194,255,0.15);
+  border-radius:10px;padding:28px 32px;position:relative;overflow:hidden;
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1)
+}
+.step-card:hover{border-color:rgba(0,194,255,0.35);transform:translateY(-2px)}
+.step-number{
+  font-size:5rem;font-weight:900;font-family:'Space Grotesk',sans-serif;
+  position:absolute;right:20px;top:-10px;
+  background:linear-gradient(135deg,rgba(0,194,255,0.12),rgba(0,194,255,0.04));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1
+}
+
+/* ── Service card ── */
+.service-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(0,194,255,0.15);
+  border-radius:10px;padding:32px;
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1)
+}
+.service-card:hover{
+  border-color:rgba(0,194,255,0.35);
+  transform:translateY(-2px);
+  box-shadow:0 4px 20px rgba(0,194,255,0.1)
+}
+
+/* ── Case card expand ── */
+.case-card-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.case-card-body.open{max-height:600px}
+.expand-btn{
+  display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;
+  color:#00C2FF;cursor:pointer;background:none;border:none;padding:0;margin-top:12px
+}
+.expand-icon{transition:transform 0.3s;font-size:10px}
+.expand-icon.rotated{transform:rotate(180deg)}
+
+/* ── Hero star field (CSS particles) ── */
+.star-field{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0
+}
+.star{
+  position:absolute;background:#fff;border-radius:50%;
+  animation:starFloat 4s ease-in-out infinite;
+  opacity:0.4
+}
+
+/* ── Data flow accent line ── */
+.data-flow-line{
+  height:1px;
+  background:linear-gradient(90deg,transparent,#00C2FF,#1A7FFF,transparent);
+  background-size:200% 100%;
+  animation:data-flow 3s ease infinite;
+  opacity:0.4
+}
+
+/* ── Mobile responsiveness ── */
+@media (max-width: 768px) {
+  .page-hero { padding: 100px 16px 60px }
+  .page-hero h1 { font-size: 2.5rem }
+  .glass-card { border-radius: 12px }
+  .glass-card:hover { transform: none }
+  .arch-flow { font-size: 11px; padding: 10px 12px; white-space: normal }
+  .arch-node { margin: 2px }
+  .arch-arrow { display: none }
+  .btn-primary, .btn-outline { padding: 12px 24px; font-size: 0.9rem }
+  .metric-number { font-size: 2.2rem }
+  .step-number { font-size: 3.5rem }
+  .industry-icon { width: 40px; height: 40px }
+  .marquee-track { animation-duration: 20s }
+}
+@media (max-width: 480px) {
+  .page-hero { padding: 80px 12px 40px }
+  .page-hero h1 { font-size: 2rem }
+  .tag-badge, .tag-badge-blue, .tag-badge-green { font-size: 9px; padding: 2px 8px }
+  .step-card { padding: 20px 24px }
+}
